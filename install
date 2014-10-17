@@ -1,0 +1,3 @@
+sudo apt-get install gdebi-core
+cd ubuntu_14.04
+sudo gdebi libcollada-dev.deb  libopensg-dev.deb  libvirtuose-dev.deb  libvrpn-dev.deb
