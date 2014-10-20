@@ -1,3 +1,23 @@
-sudo apt-get install gdebi-core
+#!/bin/bash
+
 cd ubuntu_14.04
-sudo gdebi libcollada-dev.deb  libopensg-dev.deb  libvirtuose-dev.deb  libvrpn-dev.deb libcef-dev.deb
+
+if [ "$1" == "dev" ]; then
+
+while read line
+do
+apt-get -fy install $line > /dev/null
+if [ $? == 0 ]; then
+echo " " $line installed
+fi
+done <"dependencies"
+
+sudo gdebi -n libcollada-dev.deb  
+sudo gdebi -n libopensg-dev.deb  
+sudo gdebi -n libvirtuose-dev.deb  
+sudo gdebi -n libvrpn-dev.deb
+sudo gdebi -n libcef-dev.deb
+
+fi
+
+
