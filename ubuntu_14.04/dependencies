@@ -26,4 +26,4 @@ libcurl4-gnutls-dev
 freeglut3-dev
 libboost-filesystem-dev
 libjpeg-dev
-libao-dev
+libopenal-dev
