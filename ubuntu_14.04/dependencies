@@ -27,3 +27,7 @@ freeglut3-dev
 libboost-filesystem-dev
 libjpeg-dev
 libopenal-dev
+libgdal1h
+libcg
+libcggl
+libopenexr21
