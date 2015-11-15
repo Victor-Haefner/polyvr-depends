@@ -35,7 +35,8 @@ sudo gdebi -n libvrpn-dev.deb
 sudo gdebi -n libopensg-dev.deb
 sudo gdebi -n libvirtuose-dev.deb
 sudo gdebi -n libcef-dev.deb
-sudo gdebi -n polyvr.deb
+sudo gdebi -n libstepcode-dev.deb
+# sudo gdebi -n polyvr.deb
 
 fi
 
