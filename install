@@ -15,12 +15,18 @@ add_ppa() {
   return 1
 }
 
-# add_ppa irie/blender #Blender
-# apt-get update
-
 . /etc/lsb-release
 
 if [ "$DISTRIB_RELEASE" == "14.04" ]; then
+add_ppa irie/blender #Blender
+apt-get update
+cd ubuntu_14.04
+echo "14.04"
+fi
+
+if [ "$DISTRIB_RELEASE" == "17.3" ]; then
+add_ppa irie/blender #Blender
+apt-get update
 cd ubuntu_14.04
 echo "14.04"
 fi
