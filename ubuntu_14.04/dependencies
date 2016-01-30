@@ -36,3 +36,4 @@ libopenexr21
 libassimp-dev
 libraptor2-dev
 libgomp1
+liblapacke-dev
