@@ -38,3 +38,4 @@ libraptor2-dev
 libgomp1
 liblapacke-dev
 libxerces-c-dev
+libbullet-extras-dev
