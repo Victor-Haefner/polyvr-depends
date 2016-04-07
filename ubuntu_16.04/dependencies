@@ -1,3 +1,5 @@
+g++
+build-essential
 gdebi-core
 libmicrohttpd-dev
 libjsoncpp-dev
