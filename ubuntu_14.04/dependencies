@@ -43,3 +43,4 @@ libxerces-c-dev
 libbullet-extras-dev
 libssh2-1-dev
 xterm
+libvtk5-dev
