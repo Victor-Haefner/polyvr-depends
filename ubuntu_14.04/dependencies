@@ -1,3 +1,5 @@
+g++
+build-essential
 gdebi-core
 libmicrohttpd-dev
 libjsoncpp-dev
@@ -35,3 +37,10 @@ libcggl
 libopenexr21
 libassimp-dev
 libraptor2-dev
+libgomp1
+liblapacke-dev
+libxerces-c-dev
+libbullet-extras-dev
+libssh2-1-dev
+xterm
+libvtk5-dev
