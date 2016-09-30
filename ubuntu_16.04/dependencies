@@ -32,6 +32,7 @@ libjpeg-dev
 libopenal-dev
 libalut-dev
 libgdal1h
+libgdal1-dev
 libcg
 libcggl
 libopenexr21
