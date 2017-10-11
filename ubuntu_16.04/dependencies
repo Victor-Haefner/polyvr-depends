@@ -51,3 +51,4 @@ libnss3
 libnss3-nssdb
 libgconf-2-4 
 gconf2-common
+libmtdev-dev
