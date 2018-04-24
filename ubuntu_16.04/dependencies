@@ -52,3 +52,8 @@ libnss3-nssdb
 libgconf-2-4 
 gconf2-common
 libmtdev-dev
+liboce-foundation-dev
+liboce-modeling-dev
+liboce-ocaf-dev
+liboce-visualization-dev
+liboce-ocaf-lite-dev
