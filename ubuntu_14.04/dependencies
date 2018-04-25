@@ -8,6 +8,7 @@ python-vte
 libvte-dev
 libboost-program-options-dev 
 libboost-thread-dev 
+libboost-regex-dev
 libxml++2.6-dev
 libbullet-dev
 libgtkmm-2.4-dev
