@@ -34,6 +34,11 @@ cd ubuntu_16.04
 echo "16.04"
 fi
 
+if [ "$DISTRIB_RELEASE" == "18.04" ]; then
+cd ubuntu_18.04
+echo "18.04"
+fi
+
 if [ ! -e dependencies ]; then
 exit 1
 fi
