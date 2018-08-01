@@ -59,6 +59,7 @@ sudo gdebi -n libcef-dev.deb
 sudo gdebi -n libstepcode-dev.deb
 sudo gdebi -n ../ubuntu_16.04/libvive-dev.deb
 sudo gdebi -n libifc-dev.deb
+sudo gdebi -n libfreeopcua-dev.deb
 # sudo gdebi -n polyvr.deb
 
 
