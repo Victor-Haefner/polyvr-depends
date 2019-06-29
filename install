@@ -43,6 +43,24 @@ if [ ! -e dependencies ]; then
 exit 1
 fi
 
+if [ "$DISTRIB_RELEASE" == "18.04" ]; then
+
+packages=''
+while read line
+do
+packages="$packages $line"
+done <"dependencies"
+
+sudo apt-get -fy install $packages > /dev/null
+
+if [ $? == 0 ]; then
+echo " all packages installed!"
+else
+sudo apt-get -fy install $packages
+fi
+
+else
+
 while read line
 do
 apt-get -fy install $line > /dev/null
@@ -50,6 +68,9 @@ if [ $? == 0 ]; then
 echo " " $line installed
 fi
 done <"dependencies"
+
+fi
+
 
 sudo gdebi -n libcollada-dev.deb
 sudo gdebi -n libvrpn-dev.deb
