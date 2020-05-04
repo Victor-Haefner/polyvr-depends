@@ -1,87 +1,71 @@
 #!/bin/bash
 
-
 # auxilliary function to add a ppa only if it exists
-add_ppa() {
-  grep -h "^deb.*$1" /etc/apt/sources.list.d/* > /dev/null 2>&1
-  if [ $? -ne 0 ]
-  then
-    echo "Adding ppa:$1"
-    add-apt-repository -y ppa:$1
-    return 0
-  fi
+function add_ppa {
+	grep -h "^deb.*$1" /etc/apt/sources.list.d/* > /dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		echo "Adding ppa:$1"
+		add-apt-repository -y ppa:$1
+		return 0
+	fi
 
-  echo "ppa:$1 already exists"
-  return 1
+	echo "ppa:$1 already exists"
+	return 1
 }
 
 . /etc/lsb-release
-
 echo "Distribution: $DISTRIB_RELEASE"
 
-LIST="14.04 17.2 17.3"
-for dist in $LIST; do
-if [ "$DISTRIB_RELEASE" == "$dist" ]; then
-add_ppa irie/blender #Blender
-apt-get update
-cd ubuntu_14.04
-echo "14.04"
-fi
-done
+function install_package {
+	if [ -e "ubuntu_$DISTRIB_RELEASE/$1" ]; then
+		sudo gdebi -n "ubuntu_$DISTRIB_RELEASE/$1"
+	else
+		echo "Warning! ubuntu_$DISTRIB_RELEASE/$1 not found! installing ubuntu_18.04/$1"
+		sudo gdebi -n "ubuntu_18.04/$1"
+	fi
+}
 
-if [ "$DISTRIB_RELEASE" == "16.04" ]; then
-cd ubuntu_16.04
-echo "16.04"
-fi
+sudo apt-get update
 
-if [ "$DISTRIB_RELEASE" == "18.04" ]; then
-cd ubuntu_18.04
-echo "18.04"
+dependencies="ubuntu_$DISTRIB_RELEASE/dependencies"
+if [ ! -e "$dependencies" ]; then
+	echo "Warning! $dependencies not found! installing ubuntu_18.04/dependencies"
+	dependencies="ubuntu_18.04/dependencies"
 fi
 
-if [ ! -e dependencies ]; then
-exit 1
+if [ -e "$dependencies" ]; then
+	packages=''
+	while read line
+	do
+		packages="$packages $line"
+	done < "$dependencies"
+	sudo apt-get -fy install $packages > /dev/null
+
+	if [ $? == 0 ]; then
+		echo " all packages installed!"
+	else
+		echo " installing all packages failed, trying to install them one by one"
+		while read line
+		do
+			sudo apt-get -fy install $line > /dev/null
+			if [ $? == 0 ]; then
+				echo " " $line installed
+			fi
+		done < "$dependencies"
+	fi
 fi
 
-if [ "$DISTRIB_RELEASE" == "18.04" ]; then
-
-packages=''
-while read line
-do
-packages="$packages $line"
-done <"dependencies"
-
-sudo apt-get -fy install $packages > /dev/null
-
-if [ $? == 0 ]; then
-echo " all packages installed!"
-else
-sudo apt-get -fy install $packages
-fi
-
-else
-
-while read line
-do
-apt-get -fy install $line > /dev/null
-if [ $? == 0 ]; then
-echo " " $line installed
-fi
-done <"dependencies"
-
-fi
-
-
-sudo gdebi -n libcollada-dev.deb
-sudo gdebi -n libvrpn-dev.deb
-sudo gdebi -n libopensg-dev.deb
-sudo gdebi -n libvirtuose-dev.deb
-sudo gdebi -n libcef-dev.deb
-sudo gdebi -n libstepcode-dev.deb
-sudo gdebi -n ../ubuntu_16.04/libvive-dev.deb
-sudo gdebi -n libifc-dev.deb
-sudo gdebi -n libfreeopcua-dev.deb
-sudo gdebi -n liboce-dev.deb
+install_package libcollada-dev.deb
+install_package libvrpn-dev.deb
+install_package libopensg-dev.deb
+install_package libvirtuose-dev.deb
+install_package libcef-dev.deb
+install_package libstepcode-dev.deb
+install_package libifc-dev.deb
+install_package libfreeopcua-dev.deb
+install_package liboce-dev.deb
+install_package libredwg-dev.deb
+sudo gdebi -n ubuntu_16.04/libvive-dev.deb
 # sudo gdebi -n polyvr.deb
 
 
