@@ -5,6 +5,8 @@ libmicrohttpd-dev
 libjsoncpp-dev
 python-gtkglext1 
 python-vte
+libxmu-dev
+libxi-dev
 libvte-dev
 libboost-program-options-dev 
 libboost-thread-dev 

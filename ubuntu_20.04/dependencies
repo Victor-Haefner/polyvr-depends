@@ -1,6 +1,8 @@
 g++
 build-essential
 gdebi-core
+libxmu-dev
+libxi-dev
 libmicrohttpd-dev
 libjsoncpp-dev 
 libvte-dev
