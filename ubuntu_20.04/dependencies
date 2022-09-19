@@ -50,3 +50,4 @@ libmtdev-dev
 libcrypto++-dev
 libproj-dev
 libeigen3-dev
+libopenvr-dev
