@@ -51,3 +51,4 @@ libcrypto++-dev
 libproj-dev
 libeigen3-dev
 libopenvr-dev
+mdbtools-dev
