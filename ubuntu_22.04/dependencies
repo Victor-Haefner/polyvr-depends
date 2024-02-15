@@ -40,7 +40,7 @@ libxerces-c-dev
 libbullet-extras-dev
 libssh2-1-dev
 xterm
-libvtk7-dev
+libvtk9-dev
 libfftw3-dev
 libnspr4
 libnss3
