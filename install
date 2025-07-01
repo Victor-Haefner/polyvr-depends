@@ -28,9 +28,11 @@ function install_package {
 sudo apt-get update
 
 dependencies="ubuntu_$DISTRIB_RELEASE/dependencies"
+ls "$dependencies"
+
 if [ ! -e "$dependencies" ]; then
-	echo "Warning! $dependencies not found! installing ubuntu_18.04/dependencies"
-	dependencies="ubuntu_18.04/dependencies"
+	echo "Warning! $dependencies not found! cancel installation.."
+	exit 1
 fi
 
 if [ -e "$dependencies" ]; then
@@ -39,6 +41,8 @@ if [ -e "$dependencies" ]; then
 	do
 		packages="$packages $line"
 	done < "$dependencies"
+	echo $packages
+	
 	sudo apt-get -fy install $packages > /dev/null
 
 	if [ $? == 0 ]; then
@@ -54,6 +58,8 @@ if [ -e "$dependencies" ]; then
 		done < "$dependencies"
 	fi
 fi
+
+exit 0
 
 install_package libcollada-dev.deb
 install_package libvrpn-dev.deb
