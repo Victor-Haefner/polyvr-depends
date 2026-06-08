@@ -57,3 +57,5 @@ libimgui-dev
 libopenvr-dev
 mdbtools-dev
 texinfo
+libfftw3-dev
+libcrypto++-dev

@@ -45,3 +45,6 @@ libbullet-extras-dev
 libvtk9-dev
 libepoxy-dev
 mdbtools-dev
+libfftw3-dev
+libcrypto++-dev
+libopenvr-dev
