@@ -48,3 +48,6 @@ mdbtools-dev
 libfftw3-dev
 libcrypto++-dev
 libopenvr-dev
+libmtdev-dev
+libcairo2-dev
+libopenal-dev
